@@ -4,6 +4,7 @@ using System.Linq;
 using Azure.Cosmos;
 using System.Collections.Generic;
 using System;
+using System.Net;
 
 namespace COSMOSDB_MANUTENCAO
 {
@@ -32,6 +33,30 @@ namespace COSMOSDB_MANUTENCAO
             }
             
             return itens;
+        }
+
+        public async Task<ItemResponse<T>> ReplaceItemAsync<T> (T Object, string id, string partitionKey, string containerId, string databaseId)
+        {
+            var container = _client.GetContainer(databaseId, containerId);
+            var resposta = await container.ReplaceItemAsync<T>(Object, id, new PartitionKey(partitionKey));            
+            return resposta;
+        }
+
+        public async Task<ItemResponse<T>> AddItemAsync<T>(T Object, string id, string partitionKey, string containerId, string databaseId)
+        {
+            var container = _client.GetContainer(databaseId, containerId);
+
+            try
+            {
+                var item = await container.ReadItemAsync<T>(id, new PartitionKey(partitionKey));
+            }
+            catch (CosmosException ex) when (ex.Status == (int)HttpStatusCode.NotFound)
+            {
+                 return await container.CreateItemAsync<T>(Object, new PartitionKey(partitionKey));
+            }
+
+            return await container.UpsertItemAsync<T>(Object, new PartitionKey(partitionKey));
+
         }
     }
 }

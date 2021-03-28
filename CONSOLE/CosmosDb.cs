@@ -19,7 +19,7 @@ namespace COSMOSDB_MANUTENCAO
         {            
             var pk =$"/{partitionKey.ToLower()}" ;
             return await _client.GetDatabase(databaseId).CreateContainerIfNotExistsAsync(containerId,pk);            
-        }
+        }        
 
         public async Task<IList<T>> GetItensAsync<T>(string containerId, string databaseId, string query) 
         {

@@ -4,6 +4,64 @@
     "/home/edjaine/Documents/Fontes/COSMOS_BASE_POC/TEST/TEST.csproj": {}
   },
   "projects": {
+    "/home/edjaine/Documents/Fontes/COSMOS_BASE_POC/CONSOLE/COSMOSDB_MANUTENCAO.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/edjaine/Documents/Fontes/COSMOS_BASE_POC/CONSOLE/COSMOSDB_MANUTENCAO.csproj",
+        "projectName": "COSMOSDB_MANUTENCAO",
+        "projectPath": "/home/edjaine/Documents/Fontes/COSMOS_BASE_POC/CONSOLE/COSMOSDB_MANUTENCAO.csproj",
+        "packagesPath": "/home/edjaine/.nuget/packages/",
+        "outputPath": "/home/edjaine/Documents/Fontes/COSMOS_BASE_POC/CONSOLE/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/edjaine/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "dependencies": {
+            "Azure.Cosmos": {
+              "target": "Package",
+              "version": "[4.0.0-preview3, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/5.0.201/RuntimeIdentifierGraph.json"
+        }
+      }
+    },
     "/home/edjaine/Documents/Fontes/COSMOS_BASE_POC/TEST/TEST.csproj": {
       "version": "1.0.0",
       "restore": {
@@ -25,7 +83,11 @@
         "frameworks": {
           "net5.0": {
             "targetAlias": "net5.0",
-            "projectReferences": {}
+            "projectReferences": {
+              "/home/edjaine/Documents/Fontes/COSMOS_BASE_POC/CONSOLE/COSMOSDB_MANUTENCAO.csproj": {
+                "projectPath": "/home/edjaine/Documents/Fontes/COSMOS_BASE_POC/CONSOLE/COSMOSDB_MANUTENCAO.csproj"
+              }
+            }
           }
         },
         "warningProperties": {
